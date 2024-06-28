@@ -40,3 +40,5 @@ export default async function Page({
   // @ts-ignore this works just finel
   return <Client path={path} data={data} />;
 }
+
+export const dynamic = "force-static";
