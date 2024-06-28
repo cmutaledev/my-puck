@@ -14,7 +14,7 @@
 import "@measured/puck/puck.css";
 import { Client } from "./client";
 import { Metadata } from "next";
-import { getPage } from "../../../lib/get-page";
+import { getPage, getPageByPath } from "../../../lib/get-page";
 
 export async function generateMetadata({
   params: { puckPath = [] },
@@ -24,7 +24,7 @@ export async function generateMetadata({
   const path = `/${puckPath.join("/")}`;
 
   return {
-    title: "Puck: " + path,
+    title: "Edit: " + path,
   };
 }
 
@@ -34,7 +34,9 @@ export default async function Page({
   params: { puckPath: string[] };
 }) {
   const path = `/${puckPath.join("/")}`;
-  const data = getPage(path);
+  // const data = getPage(path);
+  const data = await getPageByPath(path);
 
+  // @ts-ignore this works just finel
   return <Client path={path} data={data} />;
 }

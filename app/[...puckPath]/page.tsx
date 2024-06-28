@@ -13,7 +13,7 @@
 import { Client } from "./client";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import { getPage } from "../../lib/get-page";
+import { getPage, getPageByPath } from "../../lib/get-page";
 
 export async function generateMetadata({
   params: { puckPath = [] },
@@ -33,12 +33,14 @@ export default async function Page({
   params: { puckPath: string[] };
 }) {
   const path = `/${puckPath.join("/")}`;
-  const data = getPage(path);
+  // const data = getPage(path);
 
+  const data = await getPageByPath(path);
   if (!data) {
     return notFound();
   }
 
+  // @ts-ignore this works just finel
   return <Client data={data} />;
 }
 
