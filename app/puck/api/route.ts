@@ -51,8 +51,8 @@ export async function POST(request: Request) {
   // fs.writeFileSync("database.json", JSON.stringify(updatedData));
 
   // Purge Next.js cache
-  revalidatePath(payload.path);
-  // revalidateTag('page');
+  revalidatePath("/");
+  revalidateTag('content');
 
   return NextResponse.json({ status: "ok" });
 }

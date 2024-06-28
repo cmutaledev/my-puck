@@ -13,7 +13,7 @@ export function Client({ path, data }: { path: string; data: Data }) {
         await fetch("/puck/api", {
           method: "post",
           body: JSON.stringify({ data, path }),
-          next: {tags: ['page']}
+          next: {tags: ['content']}
         });
       }}
     />
