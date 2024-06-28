@@ -52,7 +52,7 @@ export async function POST(request: Request) {
 
   // Purge Next.js cache
   revalidatePath("/");
-  revalidateTag('content');
+  // revalidateTag('content');
 
   return NextResponse.json({ status: "ok" });
 }
