@@ -21,9 +21,11 @@ export async function generateMetadata({
   params: { puckPath: string[] };
 }): Promise<Metadata> {
   const path = `/${puckPath.join("/")}`;
+  const data = await getPageByPath(path);
 
   return {
-    title: getPage(path)?.root.props.title,
+    // @ts-ignore typing error
+    title: data?.root.props.title,
   };
 }
 
