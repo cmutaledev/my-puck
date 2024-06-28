@@ -1,5 +1,5 @@
 /**
- * This file implements a *magic* catch-all route that renders the Puck editor.
+ * This file implements a *magic* catch-all route that renders the Puck editor..
  *
  * This route exposes /puck/[...puckPath], but is disabled by middleware.ts. The middleware
  * then rewrites all URL requests ending in `/edit` to this route, allowing you to visit any
